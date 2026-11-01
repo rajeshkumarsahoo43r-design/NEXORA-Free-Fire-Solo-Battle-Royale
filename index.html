@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d12">
+  <title>NEXORA — Free Fire Solo Arena</title>
+  <meta name="description" content="NEXORA Free Fire Battle Royale Solo tournaments, match information, leaderboard and player registration.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topline"><span>⚡ FREE FIRE BATTLE ROYALE · SOLO ONLY</span><span>SEASON 01 / 2026</span></div>
+  <header class="header">
+    <a class="brand" href="#home"><span class="brand-mark">N</span><span>NEXORA<small>SOLO ARENA</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a><a href="#tournament">Tournament</a><a href="#rules">Rules</a><a href="#leaderboard">Leaderboard</a><a class="nav-cta" href="#register">Register ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> REGISTRATION INTEREST OPEN</div>
+        <h1>DROP IN.<br><em>STAND ALONE.</em><br>TAKE THE WIN.</h1>
+        <p class="lead">A competitive arena built for Free Fire Battle Royale Solo players. No squads. No Clash Squad. Just you, your skill, and the final zone.</p>
+        <div class="hero-actions"><a class="btn primary" href="#register">ENTER THE ARENA <b>↗</b></a><a class="btn ghost" href="#tournament">EXPLORE MATCH</a></div>
+        <div class="hero-stats"><div><strong>SOLO</strong><span>GAME MODE</span></div><div><strong>BR</strong><span>FORMAT</span></div><div><strong>FF</strong><span>GAME TITLE</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Abstract battle arena artwork">
+        <div class="sun"></div><div class="ring ring-one"></div><div class="ring ring-two"></div>
+        <div class="fighter">N</div><div class="art-label">LAST PLAYER<br>STANDING</div>
+        <div class="vertical">NEXORA / SURVIVE THE ZONE</div>
+      </div>
+      <div class="hero-bottom"><span>01 — THE SOLO CIRCUIT</span><span>SKILL OVER NOISE</span></div>
+    </section>
+
+    <section class="ticker"><div>FREE FIRE MAX <b>✦</b> BATTLE ROYALE <b>✦</b> SOLO QUEUE <b>✦</b> ONE PLAYER. ONE CHANCE. <b>✦</b> FREE FIRE MAX <b>✦</b> BATTLE ROYALE <b>✦</b> SOLO QUEUE <b>✦</b></div></section>
+
+    <section class="section tournament" id="tournament">
+      <div class="section-head"><div><span class="eyebrow">01 / COMPETE</span><h2>THE SOLO<br><em>SHOWDOWN.</em></h2></div><p>Every player enters alone. Survive the battlefield, earn points, and climb the standings.</p></div>
+      <div class="event-card">
+        <div class="event-main"><span class="tag">FEATURED FORMAT</span><h3>Battle Royale<br>Solo Tournament</h3><p>Free Fire · Solo · Battle Royale</p><div class="event-meta"><span>🎮 <b>Mode</b> Solo</span><span>🗺 <b>Map</b> Announced later</span><span>📅 <b>Date</b> To be announced</span></div></div>
+        <div class="event-side"><span class="side-label">ENTRY STATUS</span><strong>INTEREST<br>OPEN</strong><p>Submit your details to register your interest. Final slot confirmation will be shared by the organizer.</p><a href="#register" class="btn primary">GET IN LINE ↗</a></div>
+      </div>
+      <p class="notice">Note: This is an independent community tournament page and is not affiliated with or endorsed by Garena. Event date, entry fee, room details and prizes must be confirmed by the organizer before registration is treated as final.</p>
+    </section>
+
+    <section class="section rules" id="rules">
+      <div class="section-head"><div><span class="eyebrow">02 / PLAY FAIR</span><h2>SOLO CODE.<br><em>NO EXCUSES.</em></h2></div><p>Simple rules keep the lobby fair. Read them before sending your entry.</p></div>
+      <div class="rule-grid">
+        <article><b>01</b><h3>SOLO ONLY</h3><p>Each participant plays individually. No squad or duo entries.</p></article>
+        <article><b>02</b><h3>ONE PLAYER</h3><p>Use your own registered in-game name and player ID.</p></article>
+        <article><b>03</b><h3>FAIR PLAY</h3><p>No hacks, scripts, teaming, or intentional exploitation.</p></article>
+        <article><b>04</b><h3>FOLLOW HOST</h3><p>Join on time and follow the organizer's match instructions.</p></article>
+      </div>
+    </section>
+
+    <section class="section leaderboard" id="leaderboard">
+      <div class="section-head"><div><span class="eyebrow">03 / THE CLIMB</span><h2>TOP OF THE<br><em>DROP ZONE.</em></h2></div><p>Standings will be published here after official match results are verified.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>RANK</th><th>PLAYER</th><th>POINTS</th><th>STATUS</th></tr></thead><tbody><tr><td>—</td><td>Results pending</td><td>—</td><td><span class="pending">AWAITING MATCH</span></td></tr></tbody></table></div>
+    </section>
+
+    <section class="section register" id="register">
+      <div class="register-copy"><span class="eyebrow">04 / CLAIM YOUR PLACE</span><h2>YOUR DROP.<br><em>YOUR STORY.</em></h2><p>Send your interest for the next Free Fire Battle Royale Solo event. The organizer will confirm details separately.</p><div class="mini-note">No payment is collected on this demo page.</div></div>
+      <form id="regForm" class="form">
+        <label>PLAYER NAME<input name="playerName" required maxlength="40" placeholder="Your name"></label>
+        <label>FREE FIRE UID<input name="uid" required inputmode="numeric" maxlength="20" placeholder="Your player UID"></label>
+        <label>CONTACT NUMBER<input name="phone" required inputmode="tel" maxlength="15" placeholder="Your mobile number"></label>
+        <label>IN-GAME NAME<input name="ign" maxlength="40" placeholder="Your in-game name"></label>
+        <button class="btn primary submit" type="submit">SUBMIT INTEREST ↗</button>
+        <p id="message" class="form-message" aria-live="polite"></p>
+        <small class="privacy">Demo only: this form saves entries in this browser on this device. It does not send them to the organizer.</small>
+      </form>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark">N</span><span>NEXORA<small>SOLO ARENA</small></span></a><span>BUILT FOR THE LAST PLAYER STANDING.</span><span>© 2026 NEXORA COMMUNITY</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
