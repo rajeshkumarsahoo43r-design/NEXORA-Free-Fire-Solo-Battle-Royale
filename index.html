@@ -3,21 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXORA Esports | Free Fire Solo</title>
+<title>NEXORA ESPORTS</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080d0c;color:white;font-family:Arial,sans-serif;text-align:center}
-header{padding:22px;background:#101b17;border-bottom:2px solid #baff39}
+body{
+margin:0;
+background:#08110d;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
+}
+header{
+background:#12221a;
+padding:20px;
+border-bottom:2px solid #baff39;
+}
 h1,h2{color:#baff39}
-.hero{padding:65px 20px}
+.hero{padding:65px 15px}
 p{color:#ccc;line-height:1.7}
-.btn{display:inline-block;background:#baff39;color:#101510;padding:15px 25px;border-radius:8px;text-decoration:none;font-weight:bold;margin:15px;border:0;cursor:pointer}
-section{padding:35px 20px;margin:15px auto;max-width:750px}
-.card{background:#14211b;padding:25px;border-radius:12px;margin:15px 0}
-footer{padding:25px;color:#aaa;background:#101b17}
-#admin{display:none}
+.btn{
+display:inline-block;
+background:#baff39;
+color:#101510;
+padding:14px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin:10px;
+border:0;
+}
+section{
+max-width:850px;
+margin:25px auto;
+padding:20px;
+}
+.card{
+background:#14251b;
+padding:25px;
+border:1px solid #345039;
+border-radius:14px;
+margin:15px 0;
+}
+.price{
+font-size:30px;
+color:#baff39;
+font-weight:bold;
+}
+.badge{
+color:#baff39;
+font-size:12px;
+}
+footer{
+background:#12221a;
+padding:25px;
+color:#aaa;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -27,105 +71,41 @@ footer{padding:25px;color:#aaa;background:#101b17}
 
 <div class="hero">
 <h2>FREE FIRE SOLO BATTLE ROYALE</h2>
-<p>Only Solo Mode • Individual Players • Battle for Victory</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog" target="_blank">REGISTER NOW</a>
+<p>Enter the arena. Fight alone. Become the champion!</p>
+
+<a class="btn"
+href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog">
+REGISTER NOW
+</a>
 </div>
 
 <section>
-<h2>TOURNAMENT</h2>
+<h2>TOURNAMENT MATCHES</h2>
+
 <div class="card">
-<h3>FREE FIRE BATTLE ROYALE</h3>
-<p>Game Mode: SOLO ONLY</p>
-<p>Minimum In-game Level: 40</p>
-<p>One Player • One Battle • One Champion</p>
+<h3>FREE SOLO MATCH</h3>
+<div class="price">₹0</div>
+<p>Solo Battle Royale</p>
+<p>No Entry Fee</p>
+<a class="btn"
+href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog">
+JOIN FREE
+</a>
 </div>
-</section>
 
-<section>
-<h2>SOLO RULES</h2>
 <div class="card">
-<p>1. Only Solo Battle Royale is allowed.</p>
-<p>2. Minimum player level must be 40.</p>
-<p>3. Every player must submit their correct Free Fire UID.</p>
-<p>4. No teaming or unfair gameplay.</p>
+<span class="badge">COMING SOON</span>
+<h3>PRO SOLO MATCH</h3>
+<div class="price">₹9</div>
+<p>Proposed Kill Reward: ₹5</p>
+<p>Booyah Bonus: To Be Announced</p>
+<button class="btn" disabled>COMING SOON</button>
 </div>
-</section>
 
-<section>
-<h2>PLAYER REGISTRATION</h2>
-<p>Ready to enter the arena? Register using our official form.</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog" target="_blank">OPEN REGISTRATION FORM</a>
-</section>
-
-<section class="card">
-<h2>ADMIN LOGIN</h2>
-<p>Only authorized NEXORA admin can sign in.</p>
-<button class="btn" id="loginBtn">LOGIN WITH GOOGLE</button>
-<p id="status"></p>
-</section>
-
-<section id="admin" class="card">
-<h2>WELCOME NEXORA ADMIN</h2>
-<p id="adminEmail"></p>
-<p>Admin login successful.</p>
-<p>Player database connection is not configured yet.</p>
-<button class="btn" id="logoutBtn">LOGOUT</button>
-</section>
-
-<footer>
-<p>NEXORA ESPORTS © 2026</p>
-<p>Not affiliated with Garena or Free Fire.</p>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDaakKPKEBaR1I4S1lX16XE9boMBBkbq_U",
-  authDomain: "nexora-esports-7853e.firebaseapp.com",
-  projectId: "nexora-esports-7853e",
-  storageBucket: "nexora-esports-7853e.firebasestorage.app",
-  messagingSenderId: "1067867250330",
-  appId: "1:1067867250330:web:6c9eb9eb91f02bcf580923"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-
-const adminEmail = "rajeshkumarsahoo43r@gmail.com";
-
-document.getElementById("loginBtn").onclick = async () => {
-  const status = document.getElementById("status");
-  status.textContent = "Logging in...";
-  try {
-    const result = await auth.signInWithPopup(provider);
-    if (result.user.email.toLowerCase() !== adminEmail.toLowerCase()) {
-      await auth.signOut();
-      status.textContent = "Access denied. Admin only.";
-    }
-  } catch (error) {
-    status.textContent = error.message;
-  }
-};
-
-document.getElementById("logoutBtn").onclick = () => auth.signOut();
-
-auth.onAuthStateChanged(user => {
-  const adminPanel = document.getElementById("admin");
-  const loginButton = document.getElementById("loginBtn");
-  if (user && user.email.toLowerCase() === adminEmail.toLowerCase()) {
-    adminPanel.style.display = "block";
-    loginButton.style.display = "none";
-    document.getElementById("adminEmail").textContent = user.email;
-    document.getElementById("status").textContent = "";
-  } else {
-    adminPanel.style.display = "none";
-    loginButton.style.display = "inline-block";
-  }
-});
-</script>
-
-</body>
-</html>
+<div class="card">
+<span class="badge">COMING SOON</span>
+<h3>ELITE SOLO MATCH</h3>
+<div class="price">₹19</div>
+<p>Proposed Kill Reward: ₹15</p>
+<p>Booyah Bonus: To Be Announced</p>
+<button class="btn" disabled>COMING SOON</
