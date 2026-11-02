@@ -868,7 +868,7 @@ onAuthStateChanged(auth, async (user) => {
       "Logged in as: " + (user.email || "Google user");
 
     await loadProfile(user);
-
+await loadTournaments();
 
     // ADMIN CHECK
 
