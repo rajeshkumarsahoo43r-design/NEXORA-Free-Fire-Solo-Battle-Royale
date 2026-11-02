@@ -837,18 +837,7 @@ joinBtn.addEventListener("click", async () => {
       return;
     }
 
-    const joined = await get(
-      ref(db,"tournamentJoins/" + child.key)
-    );
-
-    const count = joined.exists()
-      ? Object.keys(joined.val()).length
-      : 0;
-
-    if(count >= data.maxPlayers){
-      showStatus("Tournament is full.");
-      return;
-    }
+    
 
     await set(joinRef,{
       playerName: profile.playerName,
