@@ -870,7 +870,20 @@ if(auth.currentUser && auth.currentUser.uid === ADMIN_UID){
         return;
       }
 
-      let result = "";
+      let totalJoined = 0;
+
+joinedSnap.forEach(() => {
+  totalJoined++;
+});
+
+const maxSlots = Number(data.maxPlayers) || 0;
+const availableSlots = Math.max(0, maxSlots - totalJoined);
+
+let result =
+  "TOTAL SLOTS: " + maxSlots +
+  "\nJOINED PLAYERS: " + totalJoined +
+  "\nAVAILABLE SLOTS: " + availableSlots +
+  "\n\nPLAYER DETAILS:\n\n";
 
       joinedSnap.forEach((player) => {
         const p = player.val();
