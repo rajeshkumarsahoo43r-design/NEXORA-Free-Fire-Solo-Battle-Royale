@@ -760,7 +760,100 @@ $("refreshPlayersBtn").addEventListener(
   loadAdminPlayers
 );
 
+// TOURNAMENT MANAGEMENT
 
+async function loadTournaments(){
+
+  const list = $("tournamentList");
+  list.replaceChildren();
+
+  try{
+
+    const snapshot = await get(ref(db,"tournaments"));
+
+    if(!snapshot.exists()){
+      list.textContent = "No tournaments available.";
+      return;
+    }
+
+    snapshot.forEach((child) => {
+
+      const data = child.val();
+
+      const card = document.createElement("div");
+      card.className = "player-card";
+
+      const name = document.createElement("h3");
+      name.textContent = data.name || "Tournament";
+
+      const date = document.createElement("p");
+      date.textContent = "Date: " + (data.date || "-");
+
+      const time = document.createElement("p");
+      time.textContent = "Time: " + (data.time || "-");
+
+      const players = document.createElement("p");
+      players.textContent = "Maximum Players: " + (data.maxPlayers || "-");
+
+      card.append(name, date, time, players);
+      list.appendChild(card);
+
+    });
+
+  }catch(error){
+    showStatus("Tournament loading error: " + error.message);
+  }
+
+}
+
+
+$("createTournamentBtn").addEventListener("click", async () => {
+
+  const user = auth.currentUser;
+
+  if(!user || user.uid !== ADMIN_UID){
+    showStatus("Admin access denied.");
+    return;
+  }
+
+  const name = $("tournamentName").value.trim();
+  const date = $("matchDate").value;
+  const time = $("matchTime").value;
+  const maxPlayers = Number($("maxPlayers").value);
+
+  if(!name || !date || !time || !Number.isInteger(maxPlayers) || maxPlayers < 2){
+    showStatus("Please enter valid tournament details.");
+    return;
+  }
+
+  try{
+
+    showStatus("Creating tournament...");
+
+    const newTournament = push(ref(db,"tournaments"));
+
+    await set(newTournament,{
+      name: name,
+      date: date,
+      time: time,
+      maxPlayers: maxPlayers,
+      createdAt: Date.now()
+    });
+
+    showStatus("Tournament created successfully!");
+
+    $("tournamentName").value = "";
+    $("matchDate").value = "";
+    $("matchTime").value = "";
+    $("maxPlayers").value = "";
+
+    await loadTournaments();
+
+  }catch(error){
+    showStatus("Tournament error: " + error.message);
+  }
+
+});
 // AUTH STATE
 
 onAuthStateChanged(auth, async (user) => {
