@@ -8,60 +8,61 @@
 <style>
 *{box-sizing:border-box}
 body{
-margin:0;
-background:#08110d;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
+ margin:0;
+ background:#08110d;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
 }
 header{
-background:#12221a;
-padding:20px;
-border-bottom:2px solid #baff39;
+ background:#12221a;
+ padding:20px;
+ border-bottom:2px solid #baff39;
 }
 h1,h2{color:#baff39}
-.hero{padding:65px 15px}
-p{color:#ccc;line-height:1.7}
-.btn{
-display:inline-block;
-background:#baff39;
-color:#101510;
-padding:14px 22px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin:10px;
-border:0;
-}
+p{color:#ccc;line-height:1.6}
 section{
-max-width:850px;
-margin:25px auto;
-padding:20px;
+ max-width:600px;
+ margin:25px auto;
+ padding:20px;
 }
 .card{
-background:#14251b;
-padding:25px;
-border:1px solid #345039;
-border-radius:14px;
-margin:15px 0;
+ background:#14251b;
+ padding:22px;
+ border:1px solid #345039;
+ border-radius:14px;
+ margin:15px 0;
 }
-.price{
-font-size:30px;
-color:#baff39;
-font-weight:bold;
+input{
+ width:100%;
+ padding:13px;
+ margin:8px 0;
+ border:1px solid #456047;
+ border-radius:7px;
+ background:#08110d;
+ color:white;
 }
-.badge{
-color:#baff39;
-font-size:12px;
+.btn{
+ display:inline-block;
+ background:#baff39;
+ color:#101510;
+ padding:13px 20px;
+ border:0;
+ border-radius:8px;
+ font-weight:bold;
+ margin:8px;
+ cursor:pointer;
 }
+.secondary{
+ background:#263b2c;
+ color:white;
+}
+.hidden{display:none}
+#status{color:#baff39}
 footer{
-background:#12221a;
-padding:25px;
-color:#aaa;
-}
-button:disabled{
-opacity:.6;
-cursor:not-allowed;
+ padding:25px;
+ background:#12221a;
+ color:#aaa;
 }
 </style>
 </head>
@@ -73,65 +74,61 @@ cursor:not-allowed;
 <p>YOUR BATTLE. YOUR GLORY.</p>
 </header>
 
-<div class="hero">
-<h2>FREE FIRE SOLO BATTLE ROYALE</h2>
-<p>Enter the arena. Fight alone. Become the champion!</p>
-
-<a class="btn"
-href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog">
-REGISTER NOW
-</a>
-</div>
-
 <section>
-<h2>TOURNAMENT MATCHES</h2>
+<h2>PLAYER LOGIN</h2>
 
-<div class="card">
-<h3>FREE SOLO MATCH</h3>
-<div class="price">₹0</div>
-<p>Solo Battle Royale</p>
-<p>No Entry Fee</p>
-<a class="btn"
-href="https://docs.google.com/forms/d/e/1FAIpQLSdfnihmr2Q1V1_yPFcISbyIx1g-cpPt0yJNrDenIk0dxhARWA/viewform?usp=dialog">
-JOIN FREE
-</a>
+<div class="card" id="authBox">
+
+<input id="email" type="email"
+placeholder="Enter Email">
+
+<input id="password" type="password"
+placeholder="Enter Password">
+
+<button class="btn" id="signupBtn">
+SIGN UP
+</button>
+
+<button class="btn" id="loginBtn">
+LOGIN
+</button>
+
+<button class="btn secondary" id="googleBtn">
+LOGIN WITH GOOGLE
+</button>
+
 </div>
 
-<div class="card">
-<span class="badge">COMING SOON</span>
-<h3>PRO SOLO MATCH</h3>
-<div class="price">₹9</div>
-<p>Proposed Kill Reward: ₹5</p>
-<p>Booyah Bonus: To Be Announced</p>
-<button class="btn" disabled>COMING SOON</button>
+<div class="card hidden" id="profileBox">
+
+<h2>PLAYER PROFILE</h2>
+
+<p id="userEmail"></p>
+
+<input id="playerName"
+placeholder="Player Name">
+
+<input id="freeFireUid"
+placeholder="Free Fire UID">
+
+<input id="inGameName"
+placeholder="In-game Name">
+
+<button class="btn" id="saveBtn">
+SAVE PROFILE
+</button>
+
+<p>Total Kills: <span id="kills">0</span></p>
+<p>Total Matches: <span id="matches">0</span></p>
+
+<button class="btn secondary" id="logoutBtn">
+LOGOUT
+</button>
+
 </div>
 
-<div class="card">
-<span class="badge">COMING SOON</span>
-<h3>ELITE SOLO MATCH</h3>
-<div class="price">₹19</div>
-<p>Proposed Kill Reward: ₹15</p>
-<p>Booyah Bonus: To Be Announced</p>
-<button class="btn" disabled>COMING SOON</button>
-</div>
-</section>
+<p id="status">Welcome to NEXORA!</p>
 
-<section>
-<h2>TOURNAMENT RULES</h2>
-<div class="card">
-<p>1. Solo Battle Royale format.</p>
-<p>2. Players must follow fair-play rules.</p>
-<p>3. Minimum in-game level: 40.</p>
-<p>4. Hacking or cheating is not allowed.</p>
-<p>5. Follow the match instructions carefully.</p>
-</div>
-</section>
-
-<section>
-<h2>IMPORTANT NOTICE</h2>
-<p>Free matches are open for registration.</p>
-<p>Paid matches are not active yet. Do not send money to anyone.</p>
-<p>Paid tournaments will only be considered after applicable legal, tax, game-platform and payment compliance checks.</p>
 </section>
 
 <footer>
@@ -139,5 +136,156 @@ JOIN FREE
 <p>YOUR BATTLE. YOUR GLORY.</p>
 </footer>
 
-</body>
-</html>
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+ getAuth,
+ GoogleAuthProvider,
+ signInWithPopup,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ onAuthStateChanged,
+ signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+ getDatabase,
+ ref,
+ get,
+ set
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+ apiKey: "AIzaSyDaakKPKEBaR1I4S1lX16XE9boMBBkbq_U",
+ authDomain: "nexora-esports-7853e.firebaseapp.com",
+ databaseURL: "https://nexora-esports-7853e-default-rtdb.asia-southeast1.firebasedatabase.app",
+ projectId: "nexora-esports-7853e",
+ storageBucket: "nexora-esports-7853e.firebasestorage.app",
+ messagingSenderId: "1067867250330",
+ appId: "1:1067867250330:web:6c9eb9eb91f02bcf580923"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+const provider = new GoogleAuthProvider();
+
+const $ = id => document.getElementById(id);
+
+function message(text){
+ $("status").textContent = text;
+}
+
+$("signupBtn").onclick = async () => {
+ try{
+  const email = $("email").value.trim();
+  const password = $("password").value;
+
+  if(!email || password.length < 6){
+   message("Enter email and password (minimum 6 characters).");
+   return;
+  }
+
+  await createUserWithEmailAndPassword(
+   auth,email,password
+  );
+
+  message("Account created successfully!");
+
+ }catch(error){
+  message(error.message);
+ }
+};
+
+$("loginBtn").onclick = async () => {
+ try{
+  await signInWithEmailAndPassword(
+   auth,
+   $("email").value.trim(),
+   $("password").value
+  );
+
+  message("Login successful!");
+
+ }catch(error){
+  message(error.message);
+ }
+};
+
+$("googleBtn").onclick = async () => {
+ try{
+  await signInWithPopup(auth,provider);
+  message("Google login successful!");
+
+ }catch(error){
+  message(error.message);
+ }
+};
+
+onAuthStateChanged(auth, async user => {
+
+ if(user){
+
+  $("authBox").classList.add("hidden");
+  $("profileBox").classList.remove("hidden");
+
+  $("userEmail").textContent = user.email || "Google User";
+
+  await loadProfile(user.uid);
+
+ }else{
+
+  $("authBox").classList.remove("hidden");
+  $("profileBox").classList.add("hidden");
+
+ }
+
+});
+
+async function loadProfile(uid){
+
+ try{
+
+  const snapshot = await get(
+   ref(db,"players/" + uid)
+  );
+
+  if(snapshot.exists()){
+
+   const data = snapshot.val();
+
+   $("playerName").value = data.playerName || "";
+   $("freeFireUid").value = data.freeFireUid || "";
+   $("inGameName").value = data.inGameName || "";
+
+   $("kills").textContent = data.totalKills ?? 0;
+   $("matches").textContent = data.totalMatches ?? 0;
+
+  }else{
+
+   $("kills").textContent = 0;
+   $("matches").textContent = 0;
+
+  }
+
+ }catch(error){
+
+  message("Profile loading error: " + error.message);
+
+ }
+
+}
+
+$("saveBtn").onclick = async () => {
+
+ const user = auth.currentUser;
+
+ if(!user) return;
+
+ try{
+
+  await set(
+   ref(db,"players
