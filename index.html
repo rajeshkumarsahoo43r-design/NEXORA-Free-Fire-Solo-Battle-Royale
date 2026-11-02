@@ -347,8 +347,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
+  
   onAuthStateChanged,
   signOut
 }
@@ -477,8 +477,7 @@ $("googleBtn").addEventListener("click", async () => {
 
     showStatus("Opening Google login...");
 
-    await signInWithRedirect(auth,provider);
-
+    await signInWithPopup (auth, provider);
   }catch(error){
 
     showStatus(error.message);
@@ -488,17 +487,6 @@ $("googleBtn").addEventListener("click", async () => {
 });
 
 
-// GOOGLE REDIRECT RESULT
-
-try{
-
-  await getRedirectResult(auth);
-
-}catch(error){
-
-  showStatus(error.message);
-
-}
 
 
 // LOAD PLAYER PROFILE
