@@ -6,26 +6,44 @@
 <title>NEXORA - Free Fire Tournament</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
   background:#07110d;
   color:#fff;
   font-family:Arial,sans-serif;
   min-height:100vh;
 }
+
 header{
   padding:20px;
   text-align:center;
   border-bottom:1px solid #24432e;
 }
+
 .logo{
   color:#b6ff39;
   font-size:30px;
   font-weight:900;
   letter-spacing:4px;
 }
-header p{color:#aaa;margin-top:6px;font-size:12px}
-.container{max-width:500px;margin:25px auto;padding:15px}
+
+header p{
+  color:#aaa;
+  margin-top:6px;
+  font-size:12px;
+}
+
+.container{
+  max-width:500px;
+  margin:25px auto;
+  padding:15px;
+}
+
 .card{
   background:#101e16;
   border:1px solid #294c32;
@@ -33,8 +51,16 @@ header p{color:#aaa;margin-top:6px;font-size:12px}
   padding:22px;
   margin-bottom:18px;
 }
-h2{color:#b6ff39;margin-bottom:15px}
-h3{margin-bottom:12px}
+
+h2{
+  color:#b6ff39;
+  margin-bottom:15px;
+}
+
+h3{
+  margin-bottom:12px;
+}
+
 input{
   width:100%;
   padding:14px;
@@ -45,6 +71,7 @@ input{
   color:white;
   font-size:15px;
 }
+
 button{
   width:100%;
   padding:14px;
@@ -57,22 +84,33 @@ button{
   font-weight:bold;
   cursor:pointer;
 }
+
 button.google{
   background:#fff;
   color:#222;
 }
+
 button.logout{
   background:#263b2c;
   color:white;
 }
-button:disabled{opacity:.6}
+
+button:disabled{
+  opacity:.6;
+}
+
 .small{
   color:#aaa;
   font-size:12px;
   text-align:center;
   margin-top:12px;
 }
-#profileBox{display:none}
+
+#profileBox,
+#adminBox{
+  display:none;
+}
+
 #status{
   color:#b6ff39;
   text-align:center;
@@ -80,11 +118,13 @@ button:disabled{opacity:.6}
   font-size:14px;
   overflow-wrap:anywhere;
 }
+
 .stats{
   display:flex;
   gap:12px;
   margin:15px 0;
 }
+
 .stat{
   flex:1;
   padding:17px 8px;
@@ -92,12 +132,18 @@ button:disabled{opacity:.6}
   background:#192b1e;
   border-radius:10px;
 }
+
 .stat strong{
   display:block;
   color:#b6ff39;
   font-size:25px;
 }
-.stat span{font-size:12px;color:#aaa}
+
+.stat span{
+  font-size:12px;
+  color:#aaa;
+}
+
 .notice{
   color:#aaa;
   font-size:12px;
@@ -105,6 +151,29 @@ button:disabled{opacity:.6}
   text-align:center;
   margin-top:15px;
 }
+
+.player-card{
+  background:#192b1e;
+  border:1px solid #35533c;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+.player-card p{
+  color:#ccc;
+  font-size:13px;
+  margin:7px 0;
+  overflow-wrap:anywhere;
+}
+
+.player-card label{
+  display:block;
+  color:#b6ff39;
+  margin-top:10px;
+  font-size:13px;
+}
+
 footer{
   text-align:center;
   color:#777;
@@ -123,34 +192,77 @@ footer{
 
 <div class="container">
 
+  <!-- LOGIN -->
   <div id="authBox" class="card">
+
     <h2>PLAYER LOGIN</h2>
 
-    <input id="email" type="email" placeholder="Email address">
-    <input id="password" type="password" placeholder="Password">
+    <input
+      id="email"
+      type="email"
+      placeholder="Email address"
+    >
 
-    <button id="loginBtn" type="button">LOGIN</button>
-    <button id="signupBtn" type="button">CREATE ACCOUNT</button>
+    <input
+      id="password"
+      type="password"
+      placeholder="Password"
+    >
+
+    <button id="loginBtn" type="button">
+      LOGIN
+    </button>
+
+    <button id="signupBtn" type="button">
+      CREATE ACCOUNT
+    </button>
+
     <button id="googleBtn" class="google" type="button">
       CONTINUE WITH GOOGLE
     </button>
 
-    <p class="small">Create an account to save your player profile.</p>
+    <p class="small">
+      Create an account to save your player profile.
+    </p>
+
   </div>
 
+
+  <!-- PLAYER PROFILE -->
   <div id="profileBox" class="card">
+
     <h2>PLAYER PROFILE</h2>
+
     <p id="welcome" style="color:#aaa;margin-bottom:15px"></p>
 
-    <input id="playerName" type="text" placeholder="Your Name">
-    <input id="freeFireUid" type="text" placeholder="Free Fire UID">
-    <input id="inGameName" type="text" placeholder="In-Game Name">
+    <input
+      id="playerName"
+      type="text"
+      placeholder="Your Name"
+    >
 
-    <button id="saveBtn" type="button">SAVE PROFILE</button>
+    <input
+      id="freeFireUid"
+      type="text"
+      placeholder="Free Fire UID"
+    >
 
-    <h3 style="margin-top:25px">YOUR STATISTICS</h3>
+    <input
+      id="inGameName"
+      type="text"
+      placeholder="In-Game Name"
+    >
+
+    <button id="saveBtn" type="button">
+      SAVE PROFILE
+    </button>
+
+    <h3 style="margin-top:25px">
+      YOUR STATISTICS
+    </h3>
 
     <div class="stats">
+
       <div class="stat">
         <strong id="kills">0</strong>
         <span>TOTAL KILLS</span>
@@ -160,26 +272,58 @@ footer{
         <strong id="matches">0</strong>
         <span>TOTAL MATCHES</span>
       </div>
+
     </div>
 
-    <button id="logoutBtn" class="logout" type="button">LOGOUT</button>
+    <button id="logoutBtn" class="logout" type="button">
+      LOGOUT
+    </button>
+
   </div>
 
+
+  <!-- ADMIN DASHBOARD -->
+  <div id="adminBox" class="card">
+
+    <h2>ADMIN DASHBOARD</h2>
+
+    <p style="color:#aaa;font-size:13px">
+      Welcome Admin! Manage registered players here.
+    </p>
+
+    <button id="refreshPlayersBtn" type="button">
+      REFRESH PLAYERS
+    </button>
+
+    <div id="playersList"></div>
+
+  </div>
+
+
+  <!-- TOURNAMENTS -->
   <div class="card">
+
     <h2>TOURNAMENTS</h2>
+
     <h3>Free Matches</h3>
+
     <p style="color:#aaa;font-size:14px;line-height:1.6">
       Free tournament information will be updated here.
     </p>
 
-    <h3 style="margin-top:18px">Paid Matches</h3>
+    <h3 style="margin-top:18px">
+      Paid Matches
+    </h3>
+
     <p style="color:#b6ff39;font-size:14px">
       Coming Soon
     </p>
 
     <p class="notice">
-      Paid matches are not active. Do not send money to anyone.
+      Paid matches are not active.
+      Do not send money to anyone.
     </p>
+
   </div>
 
   <p id="status"></p>
@@ -190,7 +334,10 @@ footer{
   © 2026 NEXORA ESPORTS
 </footer>
 
+
 <script type="module">
+
+// FIREBASE IMPORTS
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -204,15 +351,19 @@ import {
   getRedirectResult,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
   getDatabase,
   ref,
   get,
   update
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+
+// FIREBASE CONFIGURATION
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaakKPKEBaR1I4S1lX16XE9boMBBkbq_U",
@@ -225,6 +376,8 @@ const firebaseConfig = {
 };
 
 
+// INITIALIZE FIREBASE
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
@@ -232,13 +385,23 @@ const provider = new GoogleAuthProvider();
 
 const $ = (id) => document.getElementById(id);
 
+
+// ADMIN UID
+
+const ADMIN_UID = "IsihskHXbsTHCsrf9ggb25SLr8m1";
+
+
+// STATUS MESSAGE
+
 function showStatus(message){
   $("status").textContent = message;
 }
 
 
 // CREATE ACCOUNT
+
 $("signupBtn").addEventListener("click", async () => {
+
   const email = $("email").value.trim();
   const password = $("password").value;
 
@@ -253,17 +416,30 @@ $("signupBtn").addEventListener("click", async () => {
   }
 
   try{
+
     showStatus("Creating account...");
-    await createUserWithEmailAndPassword(auth,email,password);
+
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
     showStatus("Account created successfully!");
+
   }catch(error){
+
     showStatus(error.message);
+
   }
+
 });
 
 
 // LOGIN
+
 $("loginBtn").addEventListener("click", async () => {
+
   const email = $("email").value.trim();
   const password = $("password").value;
 
@@ -273,38 +449,67 @@ $("loginBtn").addEventListener("click", async () => {
   }
 
   try{
+
     showStatus("Logging in...");
-    await signInWithEmailAndPassword(auth,email,password);
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
     showStatus("Login successful!");
+
   }catch(error){
+
     showStatus(error.message);
+
   }
+
 });
 
 
 // GOOGLE LOGIN
+
 $("googleBtn").addEventListener("click", async () => {
+
   try{
+
     showStatus("Opening Google login...");
+
     await signInWithRedirect(auth,provider);
+
   }catch(error){
+
     showStatus(error.message);
+
   }
+
 });
 
 
-// CHECK GOOGLE REDIRECT RESULT
+// GOOGLE REDIRECT RESULT
+
 try{
+
   await getRedirectResult(auth);
+
 }catch(error){
+
   showStatus(error.message);
+
 }
 
 
 // LOAD PLAYER PROFILE
+
 async function loadProfile(user){
+
   try{
-    const snapshot = await get(ref(db,"players/" + user.uid));
+
+    const snapshot = await get(
+      ref(db,"players/" + user.uid)
+    );
 
     let data = {};
 
@@ -320,16 +525,233 @@ async function loadProfile(user){
     $("matches").textContent = data.totalMatches ?? 0;
 
   }catch(error){
+
     showStatus("Profile loading error: " + error.message);
+
   }
+
 }
 
 
+// ADMIN DASHBOARD
+
+async function loadAdminPlayers(){
+
+  const user = auth.currentUser;
+
+  if(!user || user.uid !== ADMIN_UID){
+
+    $("adminBox").style.display = "none";
+    return;
+
+  }
+
+  $("adminBox").style.display = "block";
+
+  const list = $("playersList");
+
+  list.replaceChildren();
+
+  try{
+
+    showStatus("Loading players...");
+
+    const snapshot = await get(
+      ref(db,"players")
+    );
+
+    if(!snapshot.exists()){
+
+      list.textContent = "No players registered yet.";
+
+      showStatus("No players found.");
+
+      return;
+
+    }
+
+    snapshot.forEach((child) => {
+
+      const uid = child.key;
+      const data = child.val();
+
+      const card = document.createElement("div");
+
+      card.className = "player-card";
+
+
+      // PLAYER NAME
+
+      const name = document.createElement("h3");
+
+      name.textContent =
+        data.playerName || "No Name";
+
+
+      // IN GAME NAME
+
+      const gameName = document.createElement("p");
+
+      gameName.textContent =
+        "In-Game Name: " + (data.inGameName || "-");
+
+
+      // FREE FIRE UID
+
+      const ffuid = document.createElement("p");
+
+      ffuid.textContent =
+        "Free Fire UID: " + (data.freeFireUid || "-");
+
+
+      // PLAYER ID
+
+      const playerId = document.createElement("p");
+
+      playerId.textContent =
+        "Player ID: " + uid;
+
+
+      // KILLS INPUT
+
+      const killsLabel = document.createElement("label");
+
+      killsLabel.textContent = "Total Kills";
+
+      const killsInput = document.createElement("input");
+
+      killsInput.type = "number";
+      killsInput.min = "0";
+      killsInput.step = "1";
+      killsInput.value = data.totalKills ?? 0;
+
+
+      // MATCHES INPUT
+
+      const matchesLabel = document.createElement("label");
+
+      matchesLabel.textContent = "Total Matches";
+
+      const matchesInput = document.createElement("input");
+
+      matchesInput.type = "number";
+      matchesInput.min = "0";
+      matchesInput.step = "1";
+      matchesInput.value = data.totalMatches ?? 0;
+
+
+      // SAVE BUTTON
+
+      const saveButton = document.createElement("button");
+
+      saveButton.textContent = "SAVE STATS";
+
+
+      saveButton.addEventListener("click", async () => {
+
+        const currentUser = auth.currentUser;
+
+        if(
+          !currentUser ||
+          currentUser.uid !== ADMIN_UID
+        ){
+
+          showStatus("Admin access denied.");
+
+          return;
+
+        }
+
+        const kills = Number(killsInput.value);
+        const matches = Number(matchesInput.value);
+
+        if(
+          !Number.isSafeInteger(kills) ||
+          !Number.isSafeInteger(matches) ||
+          kills < 0 ||
+          matches < 0
+        ){
+
+          showStatus("Enter valid non-negative whole numbers.");
+
+          return;
+
+        }
+
+        try{
+
+          saveButton.disabled = true;
+
+          showStatus("Updating player stats...");
+
+          await update(
+            ref(db,"players/" + uid),
+            {
+              totalKills: kills,
+              totalMatches: matches
+            }
+          );
+
+          showStatus("Player stats updated successfully!");
+
+        }catch(error){
+
+          showStatus("Update error: " + error.message);
+
+        }finally{
+
+          saveButton.disabled = false;
+
+        }
+
+      });
+
+
+      // ADD ELEMENTS
+
+      card.append(
+        name,
+        gameName,
+        ffuid,
+        playerId,
+        killsLabel,
+        killsInput,
+        matchesLabel,
+        matchesInput,
+        saveButton
+      );
+
+      list.appendChild(card);
+
+    });
+
+    showStatus("Players loaded successfully.");
+
+  }catch(error){
+
+    showStatus("Admin error: " + error.message);
+
+  }
+
+}
+
+
+// REFRESH PLAYERS
+
+$("refreshPlayersBtn").addEventListener(
+  "click",
+  loadAdminPlayers
+);
+
+
 // AUTH STATE
+
 onAuthStateChanged(auth, async (user) => {
 
   if(user){
+
     $("authBox").style.display = "none";
+
     $("profileBox").style.display = "block";
 
     $("welcome").textContent =
@@ -337,60 +759,101 @@ onAuthStateChanged(auth, async (user) => {
 
     await loadProfile(user);
 
+
+    // ADMIN CHECK
+
+    if(user.uid === ADMIN_UID){
+
+      await loadAdminPlayers();
+
+    }else{
+
+      $("adminBox").style.display = "none";
+
+    }
+
   }else{
+
     $("authBox").style.display = "block";
+
     $("profileBox").style.display = "none";
+
+    $("adminBox").style.display = "none";
+
   }
 
 });
 
 
-// SAVE PROFILE
+// SAVE PLAYER PROFILE
+
 $("saveBtn").addEventListener("click", async () => {
 
   const user = auth.currentUser;
 
   if(!user){
+
     showStatus("Please login first.");
+
     return;
+
   }
 
   const playerName = $("playerName").value.trim();
+
   const freeFireUid = $("freeFireUid").value.trim();
+
   const inGameName = $("inGameName").value.trim();
 
+
   if(!playerName || !freeFireUid || !inGameName){
+
     showStatus("Please fill all profile fields.");
+
     return;
+
   }
 
   try{
 
     showStatus("Saving profile...");
 
-    await update(ref(db,"players/" + user.uid),{
-      playerName: playerName,
-      freeFireUid: freeFireUid,
-      inGameName: inGameName
-    });
+    await update(
+      ref(db,"players/" + user.uid),
+      {
+        playerName: playerName,
+        freeFireUid: freeFireUid,
+        inGameName: inGameName
+      }
+    );
 
     showStatus("Profile saved successfully!");
 
   }catch(error){
+
     showStatus("Save error: " + error.message);
+
   }
 
 });
 
 
 // LOGOUT
+
 $("logoutBtn").addEventListener("click", async () => {
+
   try{
+
     await signOut(auth);
+
     showStatus("Logged out successfully.");
+
   }catch(error){
+
     showStatus(error.message);
+
   }
+
 });
 
 </script>
