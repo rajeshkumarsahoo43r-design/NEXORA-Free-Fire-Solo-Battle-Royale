@@ -794,7 +794,84 @@ async function loadTournaments(){
       const players = document.createElement("p");
       players.textContent = "Maximum Players: " + (data.maxPlayers || "-");
 
-      card.append(name, date, time, players);
+      const joinBtn = document.createElement("button");
+joinBtn.textContent = "JOIN TOURNAMENT";
+
+joinBtn.addEventListener("click", async () => {
+
+  const user = auth.currentUser;
+
+  if(!user){
+    showStatus("Please login first.");
+    return;
+  }
+
+  try{
+
+    joinBtn.disabled = true;
+
+    const profileSnap = await get(
+      ref(db,"players/" + user.uid)
+    );
+
+    if(!profileSnap.exists()){
+      showStatus("Please complete your player profile first.");
+      return;
+    }
+
+    const profile = profileSnap.val();
+
+    if(!profile.playerName || !profile.freeFireUid){
+      showStatus("Please complete your player profile first.");
+      return;
+    }
+
+    const joinRef = ref(
+      db,"tournamentJoins/" + child.key + "/" + user.uid
+    );
+
+    const existing = await get(joinRef);
+
+    if(existing.exists()){
+      showStatus("You already joined this tournament.");
+      return;
+    }
+
+    const joined = await get(
+      ref(db,"tournamentJoins/" + child.key)
+    );
+
+    const count = joined.exists()
+      ? Object.keys(joined.val()).length
+      : 0;
+
+    if(count >= data.maxPlayers){
+      showStatus("Tournament is full.");
+      return;
+    }
+
+    await set(joinRef,{
+      playerName: profile.playerName,
+      freeFireUid: profile.freeFireUid,
+      inGameName: profile.inGameName || "",
+      joinedAt: Date.now()
+    });
+
+    showStatus("Tournament joined successfully!");
+
+  }catch(error){
+
+    showStatus("Join error: " + error.message);
+
+  }finally{
+
+    joinBtn.disabled = false;
+
+  }
+
+});
+
+card.append(name, date, time, players, joinBtn);
       list.appendChild(card);
 
     });
