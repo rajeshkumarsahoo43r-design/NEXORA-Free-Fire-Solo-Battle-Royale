@@ -3,66 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXORA ESPORTS</title>
+<title>NEXORA - Free Fire Tournament</title>
 
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
- margin:0;
- background:#08110d;
- color:white;
- font-family:Arial,sans-serif;
- text-align:center;
+  background:#07110d;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
 }
 header{
- background:#12221a;
- padding:20px;
- border-bottom:2px solid #baff39;
+  padding:20px;
+  text-align:center;
+  border-bottom:1px solid #24432e;
 }
-h1,h2{color:#baff39}
-p{color:#ccc;line-height:1.6}
-section{
- max-width:600px;
- margin:25px auto;
- padding:20px;
+.logo{
+  color:#b6ff39;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:4px;
 }
+header p{color:#aaa;margin-top:6px;font-size:12px}
+.container{max-width:500px;margin:25px auto;padding:15px}
 .card{
- background:#14251b;
- padding:22px;
- border:1px solid #345039;
- border-radius:14px;
- margin:15px 0;
+  background:#101e16;
+  border:1px solid #294c32;
+  border-radius:15px;
+  padding:22px;
+  margin-bottom:18px;
 }
+h2{color:#b6ff39;margin-bottom:15px}
+h3{margin-bottom:12px}
 input{
- width:100%;
- padding:13px;
- margin:8px 0;
- border:1px solid #456047;
- border-radius:7px;
- background:#08110d;
- color:white;
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:1px solid #35533c;
+  border-radius:8px;
+  background:#07110d;
+  color:white;
+  font-size:15px;
 }
-.btn{
- display:inline-block;
- background:#baff39;
- color:#101510;
- padding:13px 20px;
- border:0;
- border-radius:8px;
- font-weight:bold;
- margin:8px;
- cursor:pointer;
+button{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:0;
+  border-radius:8px;
+  background:#b6ff39;
+  color:#07110d;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
-.secondary{
- background:#263b2c;
- color:white;
+button.google{
+  background:#fff;
+  color:#222;
 }
-.hidden{display:none}
-#status{color:#baff39}
+button.logout{
+  background:#263b2c;
+  color:white;
+}
+button:disabled{opacity:.6}
+.small{
+  color:#aaa;
+  font-size:12px;
+  text-align:center;
+  margin-top:12px;
+}
+#profileBox{display:none}
+#status{
+  color:#b6ff39;
+  text-align:center;
+  margin:12px 0;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+.stats{
+  display:flex;
+  gap:12px;
+  margin:15px 0;
+}
+.stat{
+  flex:1;
+  padding:17px 8px;
+  text-align:center;
+  background:#192b1e;
+  border-radius:10px;
+}
+.stat strong{
+  display:block;
+  color:#b6ff39;
+  font-size:25px;
+}
+.stat span{font-size:12px;color:#aaa}
+.notice{
+  color:#aaa;
+  font-size:12px;
+  line-height:1.6;
+  text-align:center;
+  margin-top:15px;
+}
 footer{
- padding:25px;
- background:#12221a;
- color:#aaa;
+  text-align:center;
+  color:#777;
+  padding:20px;
+  font-size:12px;
 }
 </style>
 </head>
@@ -70,70 +117,77 @@ footer{
 <body>
 
 <header>
-<h1>NEXORA</h1>
-<p>YOUR BATTLE. YOUR GLORY.</p>
+  <div class="logo">NEXORA</div>
+  <p>FREE FIRE SOLO BATTLE ROYALE</p>
 </header>
 
-<section>
-<h2>PLAYER LOGIN</h2>
+<div class="container">
 
-<div class="card" id="authBox">
+  <div id="authBox" class="card">
+    <h2>PLAYER LOGIN</h2>
 
-<input id="email" type="email"
-placeholder="Enter Email">
+    <input id="email" type="email" placeholder="Email address">
+    <input id="password" type="password" placeholder="Password">
 
-<input id="password" type="password"
-placeholder="Enter Password">
+    <button id="loginBtn" type="button">LOGIN</button>
+    <button id="signupBtn" type="button">CREATE ACCOUNT</button>
+    <button id="googleBtn" class="google" type="button">
+      CONTINUE WITH GOOGLE
+    </button>
 
-<button class="btn" id="signupBtn">
-SIGN UP
-</button>
+    <p class="small">Create an account to save your player profile.</p>
+  </div>
 
-<button class="btn" id="loginBtn">
-LOGIN
-</button>
+  <div id="profileBox" class="card">
+    <h2>PLAYER PROFILE</h2>
+    <p id="welcome" style="color:#aaa;margin-bottom:15px"></p>
 
-<button class="btn secondary" id="googleBtn">
-LOGIN WITH GOOGLE
-</button>
+    <input id="playerName" type="text" placeholder="Your Name">
+    <input id="freeFireUid" type="text" placeholder="Free Fire UID">
+    <input id="inGameName" type="text" placeholder="In-Game Name">
+
+    <button id="saveBtn" type="button">SAVE PROFILE</button>
+
+    <h3 style="margin-top:25px">YOUR STATISTICS</h3>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="kills">0</strong>
+        <span>TOTAL KILLS</span>
+      </div>
+
+      <div class="stat">
+        <strong id="matches">0</strong>
+        <span>TOTAL MATCHES</span>
+      </div>
+    </div>
+
+    <button id="logoutBtn" class="logout" type="button">LOGOUT</button>
+  </div>
+
+  <div class="card">
+    <h2>TOURNAMENTS</h2>
+    <h3>Free Matches</h3>
+    <p style="color:#aaa;font-size:14px;line-height:1.6">
+      Free tournament information will be updated here.
+    </p>
+
+    <h3 style="margin-top:18px">Paid Matches</h3>
+    <p style="color:#b6ff39;font-size:14px">
+      Coming Soon
+    </p>
+
+    <p class="notice">
+      Paid matches are not active. Do not send money to anyone.
+    </p>
+  </div>
+
+  <p id="status"></p>
 
 </div>
-
-<div class="card hidden" id="profileBox">
-
-<h2>PLAYER PROFILE</h2>
-
-<p id="userEmail"></p>
-
-<input id="playerName"
-placeholder="Player Name">
-
-<input id="freeFireUid"
-placeholder="Free Fire UID">
-
-<input id="inGameName"
-placeholder="In-game Name">
-
-<button class="btn" id="saveBtn">
-SAVE PROFILE
-</button>
-
-<p>Total Kills: <span id="kills">0</span></p>
-<p>Total Matches: <span id="matches">0</span></p>
-
-<button class="btn secondary" id="logoutBtn">
-LOGOUT
-</button>
-
-</div>
-
-<p id="status">Welcome to NEXORA!</p>
-
-</section>
 
 <footer>
-<p>© 2026 NEXORA ESPORTS</p>
-<p>YOUR BATTLE. YOUR GLORY.</p>
+  © 2026 NEXORA ESPORTS
 </footer>
 
 <script type="module">
@@ -142,150 +196,204 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
- getAuth,
- GoogleAuthProvider,
- signInWithPopup,
- createUserWithEmailAndPassword,
- signInWithEmailAndPassword,
- onAuthStateChanged,
- signOut
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithRedirect,
+  getRedirectResult,
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
- getDatabase,
- ref,
- get,
- set
+  getDatabase,
+  ref,
+  get,
+  update
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+
 const firebaseConfig = {
- apiKey: "AIzaSyDaakKPKEBaR1I4S1lX16XE9boMBBkbq_U",
- authDomain: "nexora-esports-7853e.firebaseapp.com",
- databaseURL: "https://nexora-esports-7853e-default-rtdb.asia-southeast1.firebasedatabase.app",
- projectId: "nexora-esports-7853e",
- storageBucket: "nexora-esports-7853e.firebasestorage.app",
- messagingSenderId: "1067867250330",
- appId: "1:1067867250330:web:6c9eb9eb91f02bcf580923"
+  apiKey: "AIzaSyDaakKPKEBaR1I4S1lX16XE9boMBBkbq_U",
+  authDomain: "nexora-esports-7853e.firebaseapp.com",
+  databaseURL: "https://nexora-esports-7853e-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "nexora-esports-7853e",
+  storageBucket: "nexora-esports-7853e.firebasestorage.app",
+  messagingSenderId: "1067867250330",
+  appId: "1:1067867250330:web:6c9eb9eb91f02bcf580923"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 const provider = new GoogleAuthProvider();
 
-const $ = id => document.getElementById(id);
+const $ = (id) => document.getElementById(id);
 
-function message(text){
- $("status").textContent = text;
+function showStatus(message){
+  $("status").textContent = message;
 }
 
-$("signupBtn").onclick = async () => {
- try{
+
+// CREATE ACCOUNT
+$("signupBtn").addEventListener("click", async () => {
   const email = $("email").value.trim();
   const password = $("password").value;
 
-  if(!email || password.length < 6){
-   message("Enter email and password (minimum 6 characters).");
-   return;
+  if(!email || !password){
+    showStatus("Enter email and password.");
+    return;
   }
 
-  await createUserWithEmailAndPassword(
-   auth,email,password
-  );
+  if(password.length < 6){
+    showStatus("Password must be at least 6 characters.");
+    return;
+  }
 
-  message("Account created successfully!");
+  try{
+    showStatus("Creating account...");
+    await createUserWithEmailAndPassword(auth,email,password);
+    showStatus("Account created successfully!");
+  }catch(error){
+    showStatus(error.message);
+  }
+});
 
- }catch(error){
-  message(error.message);
- }
-};
 
-$("loginBtn").onclick = async () => {
- try{
-  await signInWithEmailAndPassword(
-   auth,
-   $("email").value.trim(),
-   $("password").value
-  );
+// LOGIN
+$("loginBtn").addEventListener("click", async () => {
+  const email = $("email").value.trim();
+  const password = $("password").value;
 
-  message("Login successful!");
+  if(!email || !password){
+    showStatus("Enter email and password.");
+    return;
+  }
 
- }catch(error){
-  message(error.message);
- }
-};
+  try{
+    showStatus("Logging in...");
+    await signInWithEmailAndPassword(auth,email,password);
+    showStatus("Login successful!");
+  }catch(error){
+    showStatus(error.message);
+  }
+});
 
-$("googleBtn").onclick = async () => {
- try{
-  await signInWithPopup(auth,provider);
-  message("Google login successful!");
 
- }catch(error){
-  message(error.message);
- }
-};
+// GOOGLE LOGIN
+$("googleBtn").addEventListener("click", async () => {
+  try{
+    showStatus("Opening Google login...");
+    await signInWithRedirect(auth,provider);
+  }catch(error){
+    showStatus(error.message);
+  }
+});
 
-onAuthStateChanged(auth, async user => {
 
- if(user){
+// CHECK GOOGLE REDIRECT RESULT
+try{
+  await getRedirectResult(auth);
+}catch(error){
+  showStatus(error.message);
+}
 
-  $("authBox").classList.add("hidden");
-  $("profileBox").classList.remove("hidden");
 
-  $("userEmail").textContent = user.email || "Google User";
+// LOAD PLAYER PROFILE
+async function loadProfile(user){
+  try{
+    const snapshot = await get(ref(db,"players/" + user.uid));
 
-  await loadProfile(user.uid);
+    let data = {};
 
- }else{
+    if(snapshot.exists()){
+      data = snapshot.val();
+    }
 
-  $("authBox").classList.remove("hidden");
-  $("profileBox").classList.add("hidden");
+    $("playerName").value = data.playerName || "";
+    $("freeFireUid").value = data.freeFireUid || "";
+    $("inGameName").value = data.inGameName || "";
 
- }
+    $("kills").textContent = data.totalKills ?? 0;
+    $("matches").textContent = data.totalMatches ?? 0;
+
+  }catch(error){
+    showStatus("Profile loading error: " + error.message);
+  }
+}
+
+
+// AUTH STATE
+onAuthStateChanged(auth, async (user) => {
+
+  if(user){
+    $("authBox").style.display = "none";
+    $("profileBox").style.display = "block";
+
+    $("welcome").textContent =
+      "Logged in as: " + (user.email || "Google user");
+
+    await loadProfile(user);
+
+  }else{
+    $("authBox").style.display = "block";
+    $("profileBox").style.display = "none";
+  }
 
 });
 
-async function loadProfile(uid){
 
- try{
+// SAVE PROFILE
+$("saveBtn").addEventListener("click", async () => {
 
-  const snapshot = await get(
-   ref(db,"players/" + uid)
-  );
+  const user = auth.currentUser;
 
-  if(snapshot.exists()){
-
-   const data = snapshot.val();
-
-   $("playerName").value = data.playerName || "";
-   $("freeFireUid").value = data.freeFireUid || "";
-   $("inGameName").value = data.inGameName || "";
-
-   $("kills").textContent = data.totalKills ?? 0;
-   $("matches").textContent = data.totalMatches ?? 0;
-
-  }else{
-
-   $("kills").textContent = 0;
-   $("matches").textContent = 0;
-
+  if(!user){
+    showStatus("Please login first.");
+    return;
   }
 
- }catch(error){
+  const playerName = $("playerName").value.trim();
+  const freeFireUid = $("freeFireUid").value.trim();
+  const inGameName = $("inGameName").value.trim();
 
-  message("Profile loading error: " + error.message);
+  if(!playerName || !freeFireUid || !inGameName){
+    showStatus("Please fill all profile fields.");
+    return;
+  }
 
- }
+  try{
 
-}
+    showStatus("Saving profile...");
 
-$("saveBtn").onclick = async () => {
+    await update(ref(db,"players/" + user.uid),{
+      playerName: playerName,
+      freeFireUid: freeFireUid,
+      inGameName: inGameName
+    });
 
- const user = auth.currentUser;
+    showStatus("Profile saved successfully!");
 
- if(!user) return;
+  }catch(error){
+    showStatus("Save error: " + error.message);
+  }
 
- try{
+});
 
-  await set(
-   ref(db,"players
+
+// LOGOUT
+$("logoutBtn").addEventListener("click", async () => {
+  try{
+    await signOut(auth);
+    showStatus("Logged out successfully.");
+  }catch(error){
+    showStatus(error.message);
+  }
+});
+
+</script>
+
+</body>
+</html>
